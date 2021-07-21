@@ -29,7 +29,7 @@ jobs:
         python -m flake8
         # перейти в папку, содержащую manage.py - <корневая_папка>/<папка_проекта>/manage.py
         # запустить написанные разработчиком тесты
-        python manage.py test
+        pytest
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
