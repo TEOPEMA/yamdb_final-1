@@ -15,13 +15,14 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import AccessToken
 
 from api_yamdb.settings import EMAIL_ADMIN
+
 from .filters import CategoriesFilter, GenresFilter, TitlesFilter
 from .models import Category, Genre, Review, Title, User
 from .permissions import IsAdmin, IsAdminOrReadOnly, IsAuthorOrAdminOrModerator
-from .serializers import (CategorySerializer, CheckConfirmationCodeSerializer,
-                          CommentSerializer, GenreSerializer, ReviewSerializer,
-                          SendCodeSerializer, TitleCreateSerializer,
-                          TitleListSerializer, UserSerializer)
+from .serializers import (
+    CategorySerializer, CheckConfirmationCodeSerializer, CommentSerializer,
+    GenreSerializer, ReviewSerializer, SendCodeSerializer,
+    TitleCreateSerializer, TitleListSerializer, UserSerializer)
 
 
 class CreateDeleteListViewSet(mixins.CreateModelMixin,
