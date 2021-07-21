@@ -9,7 +9,7 @@ services:
     restart:
       always
   web:
-    build: .
+    image: dvoryanoff/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/code/static/
@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
     env_file:
-      - ./.env
+      - ./.envp
     links:
       - db
 
