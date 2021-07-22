@@ -89,4 +89,4 @@ Python, Django, Django REST Framework, PostgreSQL, Nginx, Docker, GitHub Actions
 
 ## Бэйдж
 
-https://github.com/dvoryanoff/yamdb_final/workflows/yamdb_workflow.yml/badge.svg
+https://github.com/dvoryanoff/yamdb_final/.github/workflows/yamdb_workflow.yaml/badge.svg
