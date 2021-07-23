@@ -1,26 +1,22 @@
 name: yamdb_workflow.yaml
 
-on:
-  push:
-    branches: [ master ]
+on: [push]
+
 jobs:
   tests:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
 
     - name: Install dependencies
       run: |
-        # обновление pip
         python -m pip install --upgrade pip
-        # установка flake8 и его плагинов
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
-        # установка зависимостей
         pip install -r requirements.txt
 
     - name: Test with flake8 and django tests
@@ -49,6 +45,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    if:
+      if: success() && github.ref == 'refs/heads/master'
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -70,13 +68,14 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             sudo docker-compose up -d
+            sudo docker run --rm -d -p 5000:5000 dvoryanoff/yamdb_final
   send_message:
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: tests
     steps:
       - name: send message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!
+          message: ${{ github.workflow }} Sucsess!
