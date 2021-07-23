@@ -63,11 +63,11 @@ docker container exec -it <CONTAINER ID> bash
 python manage.py collectstatic --no-input
 python manage.py migrate
 ```
-4. Для использования панели администратора по адресу http://0.0.0.0/admin/ необходимо создать суперпользователя.
+4. Для использования панели администратора по адресу http://130.193.38.100/admin/ необходимо создать суперпользователя.
 ```
 python manage.py createsuperuser.
 ```
-5. К проекту по адресу http://0.0.0.0/redoc/ подключена документация API. В ней описаны шаблоны запросов к API и ответы. Для каждого запроса указаны уровни прав доступа - пользовательские роли, которым разрешён запрос.
+5. К проекту по адресу http://130.193.38.100/redoc/ подключена документация API. В ней описаны шаблоны запросов к API и ответы. Для каждого запроса указаны уровни прав доступа - пользовательские роли, которым разрешён запрос.
 
 ## Технологии используемые в проекте
 Python, Django, Django REST Framework, PostgreSQL, Nginx, Docker, GitHub Actions
@@ -90,3 +90,7 @@ Python, Django, Django REST Framework, PostgreSQL, Nginx, Docker, GitHub Actions
 ## Бэйдж
 
 https://github.com/dvoryanoff/yamdb_final/workflows/yamdb_workflow.yaml/badge.svg
+
+## Развернутый проект можно посмотреть по ссылке:
+
+http://130.193.38.100/api/v1/
