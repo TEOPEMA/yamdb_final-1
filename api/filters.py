@@ -4,6 +4,7 @@ from .models import Category, Genre, Title
 
 
 
+
 class TitlesFilter(filters.FilterSet):
     name = filters.CharFilter(
         field_name='name',
