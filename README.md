@@ -95,4 +95,4 @@ https://github.com/dvoryanoff/yamdb_final/workflows/yamdb_workflow.yaml/badge.sv
 
 ## Развернутый проект можно посмотреть по ссылке:
 
-http://130.193.38.100/api/v1/
+http://62.84.122.69/api/v1/
